@@ -1,6 +1,6 @@
 $(function(){
     
-    var idStaff; //get id of Staff. Can Use in view task function
+    var idStaff; //get id of Staff. Can Use in update information and view task function
     var action = 1; //Use to set #post-infor-button is creatiton or updation
     var t = ""; //use to validate property not empty
     $('.form-staff').hide();
@@ -17,16 +17,7 @@ $(function(){
             $('tbody').html('');
             // Loop and append
             data.forEach(function print(staff) {
-              $('tbody').append(
-                '<tr>' + 
-                "<td class='idStaff'>"+staff._id+"</td>"+
-                "<td class='nameStaff'>" + staff.nameStaff +"</td>" +
-                "<td class='emailStaff'>" + staff.emailStaff + "</td>" +
-                "<td class='phoneStaff'>" + staff.phoneStaff + "</td>" + 
-                "<td class='positonStaff'>" + staff.positonStaff + "</td>" + 
-                "<td class='statusStaff'>" + staff.statusStaff + "</td>" + 
-              '</tr>'
-              );
+              viewStaff(staff);
             });
           }
         });
@@ -137,8 +128,8 @@ $(function(){
                 }
             });
         }
-    action = 1; 
-    clearVal();
+        action = 1; 
+        clearVal();
     });
 
     
@@ -219,5 +210,19 @@ $(function(){
         $('#statusStaff').val('');
         $('#nameTask').val('');
         $('#detailTask').val('');
+    }
+
+    //View staff function
+    function viewStaff(staff){
+        $('tbody').append(
+            '<tr>' + 
+            "<td class='idStaff'>"+staff._id+"</td>"+
+            "<td class='nameStaff'>" + staff.nameStaff +"</td>" +
+            "<td class='emailStaff'>" + staff.emailStaff + "</td>" +
+            "<td class='phoneStaff'>" + staff.phoneStaff + "</td>" + 
+            "<td class='positonStaff'>" + staff.positonStaff + "</td>" + 
+            "<td class='statusStaff'>" + staff.statusStaff + "</td>" + 
+          '</tr>'
+        );
     }
 })

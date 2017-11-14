@@ -19,7 +19,6 @@ module.exports = {
                 })
             }else{
                 console.log('saved task');
-                console.log(task.idStaff);
                 return res.status(200).json({
                     message: 'Added task of staff'
                   });
