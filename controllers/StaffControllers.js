@@ -4,13 +4,13 @@ const StaffModel = require('../model/StaffModel');
 
 module.exports = {
     createInfor: function(req, res){
-        console.log(JSON.stringify(req.body.nameStaff));
+        //console.log(JSON.stringify(req.body.nameStaff));
         var staff = new StaffModel({
             _id: new ObjectID(),
             nameStaff: req.body.nameStaff,
             emailStaff: req.body.emailStaff,
             phoneStaff: req.body.phoneStaff,
-            positonStaff: req.body.positonStaff,
+            positionStaff: req.body.positionStaff,
             statusStaff: req.body.statusStaff,
         }).save(function(err){
             if(err){
@@ -59,7 +59,7 @@ module.exports = {
                     nameStaff: req.body.nameStaff,
                     emailStaff: req.body.emailStaff,
                     phoneStaff: req.body.phoneStaff,
-                    positonStaff: req.body.positonStaff,
+                    positionStaff: req.body.positionStaff,
                     statusStaff: req.body.statusStaff,
                 }
             }, function(err){
@@ -77,8 +77,9 @@ module.exports = {
         )
     },
 
-    findByPositon: function(req, res){
-        StaffModel.find({positonStaff: req.body.positonStaff}, function(err, staffs) {
+    findByPosition: function(req, res){
+        console.log(JSON.stringify(req.params.positionStaff));
+        StaffModel.find({positionStaff: req.params.positionStaff}, function(err, staffs) {
             if (err) {
               return res.status(500).json({
                 err: err || err.errmessage
@@ -88,7 +89,7 @@ module.exports = {
                 staffs: staffs
               })
             }
-          })
+        })
     },
 
     findByStatus: function(req, res){

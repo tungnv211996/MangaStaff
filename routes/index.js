@@ -15,8 +15,8 @@ router.post('/api/saveTask', TaskStaffControllers.createTask);
 /*Get all of staff */
 router.get('/api/viewInfor', StaffControllers.getStaff);
 
-/*Find information of staff by positon*/
-router.get('/getInforByPositon', StaffControllers.findByPositon);
+/*Find information of staff by position*/
+router.get('/api/viewInforByPosition/:positionStaff', StaffControllers.findByPosition);
 
 /*Get page index*/
 router.get('/', function(req, res, next){res.render('index');});

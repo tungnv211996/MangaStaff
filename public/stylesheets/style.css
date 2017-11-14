@@ -85,6 +85,26 @@ a {
   margin: 5px;
 }
 
+.button-staff{
+  overflow: auto;  
+}
+
+.btn-staff{
+  float: left;
+  width: 50px;
+}
+
+#key-search{
+  float: right;
+  width: 200px;
+}
+
+#search-button{
+  text-transform: capitalize;
+  float: right;
+  width: 200px;
+}
+
 .pagination {
   list-style: none;
   display: inline-block;

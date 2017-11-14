@@ -6,7 +6,7 @@ var StaffSchema = new schema({
     nameStaff: String,
     emailStaff: String,
     phoneStaff: String,
-    positonStaff: String,
+    positionStaff: String,
     statusStaff: String,
 })
 var Staff = mongoose.model('staffs', StaffSchema);

@@ -5,7 +5,7 @@ $(function(){
     var t = ""; //use to validate property not empty
     $('.form-staff').hide();
 
-    //VIEW ALL button function
+    //VIEW all staffs button function
     $(document).on('click', '#get-button', function() {
         $.ajax({
           url: '/api/viewInfor',
@@ -21,8 +21,28 @@ $(function(){
             });
           }
         });
-      });
+    });
 
+    //VIEW saffs is filtered by position
+    $(document).on('click', '#search-button', function(){
+        
+        var position = $('#key-search').val();
+        $.ajax({
+            url: '/api/viewInforByPosition/' + position,
+            method: 'GET',
+            contentType: 'application/json',
+            data: JSON.stringify({positionStaff: position}),
+            success: function(res) {
+              var data = res.staffs;
+              // Clear the tbody
+              $('tbody').html('');
+              // Loop and append
+              data.forEach(function print(staff) {
+                viewStaff(staff);
+              });
+            }
+          });
+    })
     //ADD button function
     $('#add-button').on('click', function(){
         $('.get-all-staff').hide();
@@ -48,15 +68,14 @@ $(function(){
 
     $(document).on('click', '#post-infor-button', function() {
         
-        
         // Get the value from form
         var name = $('#nameStaff').val();
         var email = $('#emailStaff').val();
         var phone = $('#phoneStaff').val();
-        var positon = $('#positonStaff').val();
+        var position = $('#positionStaff').val();
         var status = $('#statusStaff').val();
 
-        if(!validateName(name)||!validateEmail(email)||!validatePhone(phone)||!validatePosition(positon)||!validateStatus(status)){
+        if(!validateName(name)||!validateEmail(email)||!validatePhone(phone)||!validatePosition(position)||!validateStatus(status)){
             Materialize.toast('Please import again', 4000); 
         }
       
@@ -68,11 +87,11 @@ $(function(){
                 url: '/api/saveInfor',
                 method: 'POST',
                 contentType: 'application/json',
-                data: JSON.stringify({nameStaff: name, emailStaff:email, phoneStaff: phone, positonStaff: positon, statusStaff: status}),
+                data: JSON.stringify({nameStaff: name, emailStaff:email, phoneStaff: phone, positionStaff: position, statusStaff: status}),
                 success: function(response) {
 
                     //get idStaff
-                    var data =response.staffs;
+                    var data = response.staffs;
                     data.forEach(function(staff) {
                         idStaff = staff._id
                     })
@@ -90,7 +109,7 @@ $(function(){
                 url: '/api/editInfor/' + idStaff,
                 method: 'PUT',
                 contentType: 'application/json',
-                data: JSON.stringify({nameStaff: name, emailStaff:email, phoneStaff: phone, positonStaff: positon, statusStaff: status}),
+                data: JSON.stringify({nameStaff: name, emailStaff:email, phoneStaff: phone, positionStaff: position, statusStaff: status}),
                 success: function(response) {
 
                     $('#form-task-button').trigger('click');
@@ -109,9 +128,8 @@ $(function(){
         var timeFinish = $('#timeFinishTask').val();
         var detail = $('#detailTask').val();
        
-        if(!validateName(name)||!validateTwoDates()||!validateDetailTask(detail))
-        {
-            Materialize.toast('Please import again', 4000); 
+        if(!validateName(name)||!validateTwoDates()||!validateDetailTask(detail)){
+           Materialize.toast('Please import again', 4000); 
         }
         // Post value
         else{
@@ -127,9 +145,9 @@ $(function(){
                     $('.get-all-staff').show();
                 }
             });
+            action = 1; 
+            clearVal();
         }
-        action = 1; 
-        clearVal();
     });
 
     
@@ -162,11 +180,11 @@ $(function(){
         }
     };
 
-    function validatePosition(positon) {
-        if( t != positon ) {
+    function validatePosition(position) {
+        if( t != position ) {
             return true;
         } else {
-            Materialize.toast('Positon is empty', 4000);
+            Materialize.toast('Position is empty', 4000);
             return false;
         }
     };
@@ -206,7 +224,7 @@ $(function(){
         $('#nameStaff').val('');
         $('#emailStaff').val('');
         $('#phoneStaff').val('');
-        $('#positonStaff').val('');
+        $('#positionStaff').val('');
         $('#statusStaff').val('');
         $('#nameTask').val('');
         $('#detailTask').val('');
@@ -220,7 +238,7 @@ $(function(){
             "<td class='nameStaff'>" + staff.nameStaff +"</td>" +
             "<td class='emailStaff'>" + staff.emailStaff + "</td>" +
             "<td class='phoneStaff'>" + staff.phoneStaff + "</td>" + 
-            "<td class='positonStaff'>" + staff.positonStaff + "</td>" + 
+            "<td class='positionStaff'>" + staff.positionStaff + "</td>" + 
             "<td class='statusStaff'>" + staff.statusStaff + "</td>" + 
           '</tr>'
         );

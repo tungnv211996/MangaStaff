@@ -22,8 +22,8 @@ block content
               label(for='phoneStaff')  Phone
           .row
             .input-field.col.s11.m8.l6
-              input#positonStaff(type='text')
-              label(for='positonStaff')  Positon
+              input#positionStaff(type='text')
+              label(for='positionStaff')  Position
           .row
             .input-field.col.s11.m8.l6
               input#statusStaff(type='text')
@@ -53,12 +53,11 @@ block content
             .input-field.col.s12
               a#post-task-button.waves-effect.waves-light.btn.pink.darken-4(class='#880e4f') Next 
     .get-all-staff   
-      .centered
-        a#get-button.waves-effect.waves-light.btn.pink.darken-4(class='#880e4f') View all
-        a#add-button.waves-effect.waves-light.btn.pink.darken-4(class='#880e4f') Add
-        tr
-          a.btn Search
-          a.btn Search
+      a#get-button.waves-effect.waves-light.btn.pink.darken-4(class='#880e4f') View all
+      a#add-button.waves-effect.waves-light.btn.pink.darken-4(class='#880e4f') Add
+      input#key-search.input-field.col.s11.m8.l6
+      a#search-button.waves-effect.waves-light.btn.pink.darken-4(class='#880e4f') Search By Position
+      //- a.waves-effect.waves-light.btn.darken-4(class='#880e4f') SearchByStatus
       br
       hr
       .col.s12
@@ -69,7 +68,7 @@ block content
               th Name
               th Email
               th Phone
-              th Positon
+              th Position
               th Status
           tbody
             tr
