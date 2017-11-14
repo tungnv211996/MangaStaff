@@ -1,0 +1,79 @@
+extends layout
+
+block content
+  .row 
+    .form-staff
+      .form-button
+        a#form-infor-button.waves-effect.waves-light.btn.pink.darken-4(class='#880e4f') Information
+        a#form-task-button.waves-effect.waves-light.btn.pink.darken-4(class='#880e4f') Task
+      .form-detail
+        form.infor.col.s12
+          .row
+            .input-field.col.s11.m8.l6
+              input#nameStaff(type='text')
+              label(for='nameStaff')  Name
+          .row
+            .input-field.col.s11.m8.l6
+              input#emailStaff(type='text')
+              label(for='stateAnimal')  Email
+          .row
+            .input-field.col.s11.m8.l6
+              input#phoneStaff(type='tel')
+              label(for='phoneStaff')  Phone
+          .row
+            .input-field.col.s11.m8.l6
+              input#positonStaff(type='text')
+              label(for='positonStaff')  Positon
+          .row
+            .input-field.col.s11.m8.l6
+              input#statusStaff(type='text')
+              label(for='statusStaff')  Status
+          .row
+            .input-field.col.s12
+              a#post-infor-button.waves-effect.waves-light.btn.pink.darken-4(class='#880e4f') Next
+        form.task.col.s12
+          .row
+            .input-field.col.s11.m8.l6
+              input#nameTask(type='text')
+              label(for='nameTask') Name Task
+          .row
+            .col.s11.m8.l6
+              label(for='timeStartTask')  Time Start
+              input#timeStartTask(type='datetime-local', placeholder='yyyy-MM-ddTHH:mm:ss', value='2017-11-11T00:00:00') 
+              
+          .row
+            .col.s11.m8.l6
+              label(for='timeFinishTask')  Time Finish
+              input#timeFinishTask(type='datetime-local', placeholder='yyyy-MM-ddTHH:mm:ss', value='2017-11-13T00:00:00')
+          .row
+            .s11.m8.l6
+              label(for='detailTask') Detail
+              textarea#detailTask(cols='45', rows='16', maxlength='65525')
+          .row
+            .input-field.col.s12
+              a#post-task-button.waves-effect.waves-light.btn.pink.darken-4(class='#880e4f') Next 
+    .get-all-staff   
+      .centered
+        a#get-button.waves-effect.waves-light.btn.pink.darken-4(class='#880e4f') View all
+        a#add-button.waves-effect.waves-light.btn.pink.darken-4(class='#880e4f') Add
+      br
+      hr
+      .col.s12
+        table#list.striped
+          thead
+            tr
+              th Id 
+              th Name
+              th Email
+              th Phone
+              th Positon
+              th Status
+          tbody
+            tr
+              td
+              td 
+              td 
+              td 
+              td
+              td
+                  

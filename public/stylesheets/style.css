@@ -1,0 +1,92 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+
+@font-face {
+  font-family: 'coffeeatmidnight';
+  src: format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'learningcurve';
+  src: format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+/*nav .brand-logo {
+  left: 3%;np
+}
+*/
+#black {
+  background-color: #000;
+}
+
+#back {
+ background-size: cover;
+ background-position: center center;
+ background-attachment: fixed;
+ background-repeat: no-repeat;
+ opacity: 0.5;
+ height: 100vh;
+ width: 100vw;
+ top: 0;
+}
+
+.content {
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   min-width: 40%;
+   transform: translate(-50%, -50%);
+   text-align: center;
+}
+
+#font {
+  font-family: coffeeatmidnight;
+  color: #fff;
+}
+
+.centered {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.form-staff{
+  overflow: auto;
+}
+
+.form-button{
+  width: 50px;
+  height: 600px;
+  float: left;
+}
+
+.form-detail{
+  width: 910px;
+  height: 600px;
+  float: right;
+}
+
+#form-infor-button, #form-task-button{
+  width: 160px;
+  margin: 5px;
+}
+
+#get-button, #add-button{
+  width: 130px;
+  margin: 5px;
+}
+
+@media screen and (min-width: 480px) {
+    .brand-logo {
+      margin-left: 2%;
+    }
+}
