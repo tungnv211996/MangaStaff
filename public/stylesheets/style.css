@@ -85,6 +85,10 @@ a {
   margin: 5px;
 }
 
+#post-task-button, #post-infor-button , .back-button{
+  margin: 0px 5px;
+}
+
 .button-staff{
   overflow: auto;  
 }

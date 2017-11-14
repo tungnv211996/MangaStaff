@@ -66,6 +66,13 @@ $(function(){
         $('.infor').hide();
     })
 
+    //BACK button function
+    $('.back-button').on('click', function(){
+        $('.form-staff').hide();
+        $('.get-all-staff').show();
+        $('#get-button').trigger('click');
+    })
+
     $(document).on('click', '#post-infor-button', function() {
         
         // Get the value from form

@@ -30,6 +30,7 @@ block content
               label(for='statusStaff')  Status
           .row
             .input-field.col.s12
+              a.back-button.waves-effect.waves-light.btn.pink.darken-4(class='#880e4f') Back
               a#post-infor-button.waves-effect.waves-light.btn.pink.darken-4(class='#880e4f') Next
         form.task.col.s12
           .row
@@ -51,7 +52,8 @@ block content
               textarea#detailTask(cols='45', rows='16', maxlength='65525')
           .row
             .input-field.col.s12
-              a#post-task-button.waves-effect.waves-light.btn.pink.darken-4(class='#880e4f') Next 
+              a.back-button.waves-effect.waves-light.btn.pink.darken-4(class='#880e4f') Back
+              a#post-task-button.waves-effect.waves-light.btn.pink.darken-4(class='#880e4f') Save 
     .get-all-staff   
       a#get-button.waves-effect.waves-light.btn.pink.darken-4(class='#880e4f') View all
       a#add-button.waves-effect.waves-light.btn.pink.darken-4(class='#880e4f') Add
@@ -88,8 +90,6 @@ block content
               a(href='#') 2
             li
               a(href='#') 3
-            li
-              a(href='#') 4
             li
               a.next(href='#')  »
                           
